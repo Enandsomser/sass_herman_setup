@@ -1,0 +1,44 @@
+@mixin background_test {
+    display: flex;
+    justify-content: center;
+    background-color:grey;}
+@mixin background_test2 {
+    display: flex;
+    justify-content: center;
+    background-color:greenyellow;
+}
+@mixin text_test {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+@mixin special_text_test {
+    display: flex;
+    justify-content: baseline;
+    background-color: aquamarine;
+    font-size: larger;
+    font-family: cursive;
+}
+@mixin andra_p($size, $font, $color, $position) {
+    font-size: $size;
+    font-family: $font;
+    background-color: $color;
+    justify-content: $position
+}
+
+.container{
+    @include background_test();
+    @include text_test();
+    p{
+        @include special_text_test();
+        
+    }
+}
+
+.andra-container {
+    @include background_test2();
+    @include text_test();
+    p {
+        @include andra_p(50px, Impact, aquamarine, baseline)
+    }
+}
+
+

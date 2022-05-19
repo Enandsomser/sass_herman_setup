@@ -1,0 +1,6 @@
+@mixin bass_code($size, $font, $color, $position) {
+    font-size: $size;
+    font-family: $font;
+    background-color: $color;
+    justify-content: $position
+}
