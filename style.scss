@@ -1,29 +1,42 @@
+//gör så att det inte blir en vit kant runt allt
+*{
+    margin: 0%;
+    padding: 0%;
+}
+//mixins som färgar bakgrunden av texten och centrerar texten.
 @mixin background_test {
     display: flex;
     justify-content: center;
-    background-color:grey;}
+    background-color:grey;
+    padding: 10px;}
 @mixin background_test2 {
     display: flex;
     justify-content: center;
     background-color:greenyellow;
+    padding: 10px;
 }
+//bara påverkar fonten på texten
 @mixin text_test {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+//frägar bakgrund, förstorar texten till large, ger den cursive som font, och fixerarteaxten till baselinjen
 @mixin special_text_test {
     display: flex;
     justify-content: baseline;
     background-color: aquamarine;
     font-size: larger;
     font-family: cursive;
+    padding: 10px;
 }
-@mixin andra_p($size, $font, $color, $position) {
+//skapar en mixin som har obestämda egenskaper vilket gör den mer flexibel då två texter kan se helt olika ut
+@mixin andra_p($size, $font, $color, $position, $paddig) {
     font-size: $size;
     font-family: $font;
     background-color: $color;
-    justify-content: $position
+    justify-content: $position;
+    padding: $paddig
 }
-
+//båda containers inehåller tre mixins och var sin inheritens
 .container{
     @include background_test();
     @include text_test();
@@ -37,7 +50,7 @@
     @include background_test2();
     @include text_test();
     p {
-        @include andra_p(50px, Impact, aquamarine, baseline)
+        @include andra_p(50px, Impact, aquamarine, baseline, 10px)
     }
 }
 
